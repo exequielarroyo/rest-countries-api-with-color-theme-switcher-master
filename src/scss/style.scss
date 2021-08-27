@@ -1,0 +1,192 @@
+@import "resets";
+@import "var-func";
+
+@mixin large-padding {
+	padding: 20px 80px;
+}
+
+@mixin small-padding {
+	padding: 20px;
+}
+
+@mixin shadow {
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+@mixin reponsive {
+	@media (max-width: 1125px) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (max-width: 800px) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: 500px) {
+		@content;
+	}
+}
+
+body {
+	font-family: $font-family;
+	background-color: $white;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	background-color: $white;
+	@include large-padding();
+	@include shadow();
+
+	h1 {
+		font-size: 1.5rem;
+	}
+
+	.dark-mode-toggle {
+		display: flex;
+		align-items: center;
+		font-weight: map-get($font-weight, medium);
+
+		ion-icon {
+			margin-right: 10px;
+			font-size: 16px;
+		}
+	}
+
+	@include reponsive() {
+		@include small-padding();
+
+		h1 {
+			font-size: 0.8rem;
+		}
+		p {
+			font-size: 0.8rem;
+		}
+	}
+}
+
+main {
+	@include large-padding();
+
+	@include reponsive() {
+		@include small-padding();
+	}
+
+	a {
+		text-decoration: none;
+	}
+}
+
+#input-filter {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 30px;
+
+	@include reponsive() {
+		flex-direction: column;
+		gap: 50px;
+	}
+
+	.search-wrapper {
+		background-color: $white;
+		position: relative;
+		display: flex;
+		align-items: center;
+
+		span.icon-search {
+			position: absolute;
+			left: 30px;
+			color: gray;
+		}
+
+		#search {
+			border-radius: 5px;
+			width: 400px;
+			border: none;
+			outline: none;
+			padding: 20px 0 20px 70px;
+			font-family: $font-family;
+			font-weight: map-get($font-weight, medium);
+			@include shadow();
+		}
+	}
+
+	#filter {
+		@include shadow();
+		border: none;
+		outline: none;
+		padding: 20px;
+		border-radius: 5px;
+		width: 200px;
+	}
+}
+
+#cards {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	margin-top: 50px;
+	gap: 80px;
+
+	@include reponsive() {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 40px;
+	}
+
+	@include tablet() {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 40px;
+	}
+	
+	@include mobile(){
+		grid-template-columns: repeat(1, 1fr);
+		padding: 0 30px;
+	}
+
+	.card {
+		background-color: $white;
+		border-radius: 5px;
+		@include shadow();
+
+		@include reponsive() {
+			margin: 0;
+		}
+
+		&__title {
+			font-size: 16px;
+			margin-bottom: 20px;
+			font-weight: map-get($font-weight, large);
+		}
+
+		&__details {
+			padding: 20px;
+			padding-bottom: 50px;
+			color: black;
+
+			&__population,
+			&__region,
+			&__capital {
+				font-size: 14px;
+				font-weight: map-get($font-weight, medium);
+			}
+
+			&__population span,
+			&__region span,
+			&__capital span {
+				font-size: 14px;
+				font-weight: map-get($font-weight, normal);
+			}
+		}
+
+		img[data-image] {
+			border-radius: 5px 5px 0 0;
+			width: 100%;
+			object-fit: cover;
+			height: 160px;
+		}
+	}
+}

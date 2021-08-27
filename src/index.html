@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./scss/style.scss">
+    <title>Document</title>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Where in the world?</h1>
+        <div class="dark-mode-toggle">
+            <ion-icon name="moon-outline"></ion-icon>
+            <p>Dark Mode</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="input-filter">
+            <div class="search-wrapper">
+                <span class="icon-search"><i class="fas fa-search"></i></span>
+                <input id="search" type="text" placeholder="Search for a country...">
+            </div>
+            <select name="country" id="filter">
+                <option value="">Filter by Region</option>
+                <option value="africa">Africa</option>
+                <option value="america">America</option>
+                <option value="asia">Asia</option>
+                <option value="europe">Europe</option>
+                <option value="oceanica">Oceanica</option>
+            </select>
+        </section>
+
+        <section id="cards">
+        </section>
+    </main>
+
+    <template data-countries-template>
+        <div class="card">
+            <a href="#">
+                <img data-image alt="countries flag">
+                <div class="card__details">
+                    <h2 data-title class="card__title">Germany</h2>
+                    <p class="card__details__population">Population
+                        <span>81,770,900</span>
+                    </p>
+                    <p class="card__details__region">Region
+                        <span>Europe</span>
+                    </p>
+                    <p class="card__details__capital">Capital
+                        <span>Berlin</span>
+                    </p>
+                </div>
+            </a>
+        </div>
+    </template>
+
+    <!-- ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/8e38f6bf4e.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

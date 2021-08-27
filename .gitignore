@@ -17,3 +17,6 @@ design
 README-2.md
 README-template.md
 style-guide.md
+node_modules
+.cache
+dist

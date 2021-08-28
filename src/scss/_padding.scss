@@ -1,0 +1,15 @@
+@mixin large-padding {
+	padding: 20px 80px;
+}
+
+@mixin small-padding {
+	padding: 20px;
+}
+
+@mixin button-padding {
+	padding: 10px 20px;
+}
+
+@mixin border-countries-padding {
+	padding: 5px 20px;
+}

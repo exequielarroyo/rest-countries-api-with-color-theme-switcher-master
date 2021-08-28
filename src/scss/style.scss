@@ -1,45 +1,20 @@
 @import "resets";
-@import "var-func";
-
-@mixin large-padding {
-	padding: 20px 80px;
-}
-
-@mixin small-padding {
-	padding: 20px;
-}
-
-@mixin shadow {
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-@mixin reponsive {
-	@media (max-width: 1125px) {
-		@content;
-	}
-}
-
-@mixin tablet {
-	@media (max-width: 800px) {
-		@content;
-	}
-}
-
-@mixin mobile {
-	@media (max-width: 500px) {
-		@content;
-	}
-}
+@import "variables";
+@import 'media-queries';
+@import 'padding';
+@import 'box-shadow';
+@import 'country';
 
 body {
+	color: var(--font-color);
 	font-family: $font-family;
-	background-color: $white;
+	background-color: var(--body-background);
 }
 
 header {
 	display: flex;
 	justify-content: space-between;
-	background-color: $white;
+	background-color: var(--element-background);
 	@include large-padding();
 	@include shadow();
 
@@ -49,6 +24,7 @@ header {
 
 	.dark-mode-toggle {
 		display: flex;
+		cursor: pointer;
 		align-items: center;
 		font-weight: map-get($font-weight, medium);
 
@@ -60,7 +36,9 @@ header {
 
 	@include reponsive() {
 		@include small-padding();
+	}
 
+	@include mobile() {
 		h1 {
 			font-size: 0.8rem;
 		}
@@ -93,7 +71,7 @@ main {
 	}
 
 	.search-wrapper {
-		background-color: $white;
+		background-color: var(--body-background);
 		position: relative;
 		display: flex;
 		align-items: center;
@@ -105,6 +83,8 @@ main {
 		}
 
 		#search {
+			color: var(--font-color);
+			background-color: var(--element-background);
 			border-radius: 5px;
 			width: 400px;
 			border: none;
@@ -114,9 +94,14 @@ main {
 			font-weight: map-get($font-weight, medium);
 			@include shadow();
 		}
+		#search::placeholder {
+			color: var(--font-color);
+		}
 	}
 
 	#filter {
+		color: var(--font-color);
+		background-color: var(--element-background);
 		@include shadow();
 		border: none;
 		outline: none;
@@ -141,14 +126,14 @@ main {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 40px;
 	}
-	
-	@include mobile(){
+
+	@include mobile() {
 		grid-template-columns: repeat(1, 1fr);
 		padding: 0 30px;
 	}
 
 	.card {
-		background-color: $white;
+		background-color: var(--element-background);
 		border-radius: 5px;
 		@include shadow();
 
@@ -165,7 +150,7 @@ main {
 		&__details {
 			padding: 20px;
 			padding-bottom: 50px;
-			color: black;
+			color: var(--font-color);
 
 			&__population,
 			&__region,

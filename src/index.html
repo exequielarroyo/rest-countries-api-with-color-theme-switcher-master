@@ -12,98 +12,106 @@
 
 <body>
     <header>
-        <h1>Where in the world?</h1>
-        <div class="dark-mode-toggle">
-            <ion-icon name="moon-outline"></ion-icon>
-            <p>Dark Mode</p>
+        <div class="header-container">
+            <h1>Where in the world?</h1>
+            <div class="dark-mode-toggle">
+                <ion-icon id="theme-icon" name="moon-outline"></ion-icon>
+                <p>Dark Mode</p>
+            </div>
         </div>
     </header>
 
     <main>
-        <section id="input-filter">
-            <div class="search-wrapper">
-                <span class="icon-search"><i class="fas fa-search"></i></span>
-                <input id="search" type="text" placeholder="Search for a country...">
+        <div class="main-container">
+            <div data-country-container>
+                <section id="input-filter">
+                    <div class="search-wrapper">
+                        <span class="icon-search"><i class="fas fa-search"></i></span>
+                        <input id="search" type="text" placeholder="Search for a country...">
+                    </div>
+                    <select name="country" id="filter">
+                        <option hidden value="">Filter by Region</option>
+                        <option value="">All</option>
+                        <option value="africa">Africa</option>
+                        <option value="america">America</option>
+                        <option value="asia">Asia</option>
+                        <option value="europe">Europe</option>
+                        <option value="oceania">Oceania</option>
+                    </select>
+                </section>
+                <section id="cards">
+                </section>
             </div>
-            <select name="country" id="filter">
-                <option value="">Filter by Region</option>
-                <option value="africa">Africa</option>
-                <option value="america">America</option>
-                <option value="asia">Asia</option>
-                <option value="europe">Europe</option>
-                <option value="oceania">Oceania</option>
-            </select>
-        </section>
-
-        <section id="cards">
-        </section>
-
-        <!-- <section data-back-btn>
-            <a id="back-btn" href="#">Back</a>
-        </section>
-
-        <section data-country-details>
-            <img data-flag alt="flag">
-            <div class="country-details">
-                <h2>Belguim</h2>
-                <div class="country-details__column">
-                    <div class="country-details__column__first">
-                        <p>Native Name:
-                            <span>Belgie</span>
-                        </p>
-                        <p>Population:
-                            <span>Belgie</span>
-                        </p>
-                        <p>Region:
-                            <span>Belgie</span>
-                        </p>
-                        <p>Sub Region:
-                            <span>Belgie</span>
-                        </p>
-                        <p>Capital:
-                            <span>Belgie</span>
-                        </p>
+            <div data-details-container>
+                <section data-back-btn>
+                    <div id="back-btn">
+                        <ion-icon name="return-down-back-outline"></ion-icon>
+                        <a>Back</a>
                     </div>
-                    <div class="country-details__column__second">
-                        <p>Top Level Domain:
-                            <span>Belgie</span>
-                        </p>
-                        <p>Currencies:
-                            <span>Euro</span>
-                        </p>
-                        <p>Languages:
-                            <span>Dutch, French, German</span>
-                        </p>
+                </section>
+                <section data-country-details>
+                    <img data-flag alt="flag">
+                    <div class="country-details">
+                        <h2 data-name>Belguim</h2>
+                        <div class="country-details__column">
+                            <div class="country-details__column__first">
+                                <p>Native Name:
+                                    <span data-native-name>Belgie</span>
+                                </p>
+                                <p>Population:
+                                    <span data-population>Belgie</span>
+                                </p>
+                                <p>Region:
+                                    <span data-region>Belgie</span>
+                                </p>
+                                <p>Sub Region:
+                                    <span data-sub-region>Belgie</span>
+                                </p>
+                                <p>Capital:
+                                    <span data-capital>Belgie</span>
+                                </p>
+                            </div>
+                            <div class="country-details__column__second">
+                                <p>Top Level Domain:
+                                    <span data-domain>Belgie</span>
+                                </p>
+                                <p>Currencies:
+                                    <span data-currency>Euro</span>
+                                </p>
+                                <p>Languages:
+                                    <span data-languages>Dutch, French, German</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="border-countries">
+                            <p>Border Countries:</p>
+                            <a href="#">France</a>
+                            <a href="#">Germany</a>
+                            <a href="#">Netherlands</a>
+                        </div>
                     </div>
-                </div>
-                <p class="border-countries">Border Countries:
-                    <a href="#">France</a>
-                    <a href="#">Germany</a>
-                    <a href="#">Netherlands</a>
-                </p>
-            </div> -->
-            
+            </div>
+        </div>
+
         </section>
 
     </main>
 
     <template data-countries-template>
-        <div class="card">
-            <a href="#">
-                <img data-image alt="countries flag">
-                <div class="card__details">
-                    <h2 data-title class="card__title">Germany</h2>
-                    <p class="card__details__population">Population
-                        <span>81,770,900</span>
-                    </p>
-                    <p class="card__details__region">Region
-                        <span>Europe</span>
-                    </p>
-                    <p class="card__details__capital">Capital
-                        <span>Berlin</span>
-                    </p>
-                </div>
-            </a>
+        <div class="card" data-country-id>
+            <img data-image alt="countries flag">
+            <div class="card__details">
+                <h2 data-title class="card__title">Germany</h2>
+                <p class="card__details__population">Population:
+                    <span>81,770,900</span>
+                </p>
+                <p class="card__details__region">Region:
+                    <span>Europe</span>
+                </p>
+                <p class="card__details__capital">Capital:
+                    <span>Berlin</span>
+                </p>
+            </div>
         </div>
     </template>
 

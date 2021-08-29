@@ -2,53 +2,80 @@ section[data-back-btn] {
 	margin: 70px 0 90px 0;
 
 	#back-btn {
+		display: flex;
+		cursor: pointer;
 		color: var(--font-color);
 		background-color: var(--element-background);
-		@include button-padding();
+		width: 100px;
+		@include border-countries-padding();
 		@include shadow();
 		border-radius: 5px;
+
+		ion-icon {
+			align-self: center;
+			margin-right: 10px;
+		}
 	}
-	#back-btn::before {
-		width: 20px;
-		height: 20px;
-		background-color: antiquewhite;
+
+	// #back-btn::before {
+	// 	width: 20px;
+	// 	height: 20px;
+	// 	background-color: antiquewhite;
+	// }
+
+	@include tablet {
+		margin: 20px 0 40px 0;
 	}
 }
 
 section[data-country-details] {
 	display: grid;
-    justify-items: center;
 	grid-template-columns: repeat(2, 1fr);
 
-	@include reponsive {
+	@include tablet {
 		grid-template-columns: repeat(1, 1fr);
 	}
-    
+
 	img[data-flag] {
-		max-width: 500px;
-		height: 400px;
+		max-width: 100%;
 		background-color: $very-dark-blue;
+
+		@include tablet {
+			margin-bottom: 40px;
+		}
 	}
 }
 
 .country-details {
 	line-height: 2rem;
 	display: flex;
+	align-self: center;
 	flex-direction: column;
 	gap: 30px;
-    margin-left: 20px;
+	margin-left: 40px;
 
-    @include reponsive {
-        margin: 0;
-    }
+	@include tablet {
+		margin: 0;
+	}
 
 	&__column {
 		display: flex;
 		justify-content: space-between;
 
-        @include reponsive {
-            flex-direction: column;
-        }
+		@include reponsive {
+			flex-direction: column;
+			gap: 30px;
+		}
+		@include tablet {
+			gap: 0;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+		@include mobile {
+			gap: 30px;
+			flex-direction: column;
+			justify-content: none;
+		}
 	}
 
 	p {
@@ -62,15 +89,23 @@ section[data-country-details] {
 	span {
 		font-weight: map-get($font-weight, normal);
 	}
-    
-	.border-countries a {
-        margin: 0 5px;
-        font-size: 14px;
-        font-weight: map-get($font-weight, normal);
-		color: var(--font-color);
-		background-color: var(--element-background);
-		@include border-countries-padding();
-		@include shadow();
-		border-radius: 5px;
+
+	.border-countries {
+		p {
+			margin-bottom: 10px;
+		}
+
+		a {
+			cursor: pointer;
+			margin: 0 10px 10px 0;
+			display: inline-block;
+			font-size: 14px;
+			font-weight: map-get($font-weight, normal);
+			color: var(--font-color);
+			background-color: var(--element-background);
+			padding: 0 20px;
+			@include shadow();
+			border-radius: 5px;
+		}
 	}
 }

@@ -1,5 +1,5 @@
 const toggle = document.querySelector(".dark-mode-toggle");
-const icon = document.querySelector("ion-icon");
+const icon = document.querySelector("#theme-icon");
 const LOCAL_STORAGE_PREFIX = "REST-COUNTRIES-API";
 const THEME_KEY = `${LOCAL_STORAGE_PREFIX}-theme`;
 
@@ -10,10 +10,12 @@ toggle.addEventListener("click", () => {
 });
 
 function themeToggle(isToggled) {
-	if (JSON.parse(isToggled)) {
-        icon.name = "moon";
+	if (isToggled) {
+        icon.setAttribute('name', 'moon')
         document.body.classList.add('theme-toggle');
 	} else {
+        icon.setAttribute('name', 'moon-outline')
+        // below code is not working
         icon.name = "moon-outline";
         document.body.classList.remove('theme-toggle');
 	}
@@ -22,7 +24,7 @@ function themeToggle(isToggled) {
 
 function loadTheme() {
     const isToggled = localStorage.getItem(THEME_KEY);
-    themeToggle(isToggled);
+    themeToggle(JSON.parse(isToggled));
 }
 
 loadTheme()

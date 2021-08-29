@@ -1,9 +1,9 @@
 @import "resets";
 @import "variables";
-@import 'media-queries';
-@import 'padding';
-@import 'box-shadow';
-@import 'country';
+@import "media-queries";
+@import "padding";
+@import "box-shadow";
+@import "country";
 
 body {
 	color: var(--font-color);
@@ -12,11 +12,17 @@ body {
 }
 
 header {
+	background-color: var(--element-background);
+	@include shadow();
+}
+
+.header-container {
+	max-width: 81.25rem;
+	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
-	background-color: var(--element-background);
 	@include large-padding();
-	@include shadow();
+	padding: 25px 55px;
 
 	h1 {
 		font-size: 1.5rem;
@@ -49,6 +55,8 @@ header {
 }
 
 main {
+	max-width: 81.25rem;
+	margin: auto;
 	@include large-padding();
 
 	@include reponsive() {
@@ -102,12 +110,18 @@ main {
 	#filter {
 		color: var(--font-color);
 		background-color: var(--element-background);
-		@include shadow();
 		border: none;
 		outline: none;
 		padding: 20px;
 		border-radius: 5px;
 		width: 200px;
+		@include shadow();
+		// appearance: none;
+	}
+
+	#filter option {
+		border: 1px solid #bd1d1d;
+		border-radius: 5px 5px 5px 5px;
 	}
 }
 
@@ -115,7 +129,7 @@ main {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	margin-top: 50px;
-	gap: 80px;
+	gap: 75px;
 
 	@include reponsive() {
 		grid-template-columns: repeat(3, 1fr);
@@ -133,6 +147,7 @@ main {
 	}
 
 	.card {
+		cursor: pointer;
 		background-color: var(--element-background);
 		border-radius: 5px;
 		@include shadow();
@@ -143,13 +158,14 @@ main {
 
 		&__title {
 			font-size: 16px;
-			margin-bottom: 20px;
+			margin-bottom: 15px;
 			font-weight: map-get($font-weight, large);
 		}
 
 		&__details {
 			padding: 20px;
-			padding-bottom: 50px;
+			padding-bottom: 40px;
+			line-height: 1.5rem;
 			color: var(--font-color);
 
 			&__population,

@@ -4,12 +4,16 @@
   "description": "",
   "scripts": {
     "start": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html"
+    "build": "parcel build ./src/index.html",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "homepage": "https://exequielarroyo.github.io/rest-countries-api-with-color-theme-switcher-master",
+  "dependencies": {
+    "gh-pages": "^3.2.3"
+  },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
     "sass": "^1.38.1"
